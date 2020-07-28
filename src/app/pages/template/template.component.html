@@ -7,12 +7,14 @@
       <div class="col-8">
         <input
           class="form-control"
+          [class.is-invalid]="nombre.invalid && nombre.touched"
           name="nombre"
           [ngModel]
           type="text"
           required
-          minlength="5"
+          minlength="2"
           placeholder="Nombre"
+          #nombre="ngModel"
         />
       </div>
     </div>
@@ -20,7 +22,17 @@
     <div class="form-group row">
       <label class="col-2 col-form-label">Apellido</label>
       <div class="col-8">
-        <input class="form-control" type="text" placeholder="Apellido" />
+        <input 
+        class="form-control"
+        [class.is-invalid]="apellido.invalid && apellido.touched"
+        type="text" 
+        placeholder="Apellido"
+        name="apellido"
+        [ngModel]
+        required
+        minlength="2"
+        #apellido="ngModel"
+        />
       </div>
     </div>
   </div>
@@ -30,8 +42,14 @@
     <div class="col-8">
       <input
         class="form-control"
+        [class.is-invalid]="correo.invalid && correo.touched"
         type="email"
+        required
+        [ngModel]
+        name="correo"
         placeholder="Correo electrónico"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+        #correo="ngModel"
       />
     </div>
   </div>
