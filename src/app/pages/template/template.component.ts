@@ -11,9 +11,9 @@ export class TemplateComponent implements OnInit {
   constructor() { }
 
   usuario = {
-    nombre: '',
-    apellido:'',
-    correo:''
+    nombre: 'César',
+    apellido:'González',
+    correo:'cedgo1997@gmail.com'
   }
 
 
