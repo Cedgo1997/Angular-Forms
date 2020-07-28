@@ -11,7 +11,9 @@ export class TemplateComponent implements OnInit {
   constructor() { }
 
   usuario = {
-    nombre: ''
+    nombre: '',
+    apellido:'',
+    correo:''
   }
 
 
@@ -22,5 +24,6 @@ export class TemplateComponent implements OnInit {
 
   guardar(forma: NgForm) {
     console.log(forma)
+    console.log(forma.value)
   }
 }
