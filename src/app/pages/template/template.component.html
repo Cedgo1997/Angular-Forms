@@ -1,6 +1,6 @@
 <h4>Formularios <small> Template Form </small></h4>
 <hr />
-<form autocomplete="off" (ngSubmit)="guardar( forma )" #forma="ngForm">
+<form autocomplete="off" (ngSubmit)="guardar(forma)" #forma="ngForm">
   <div>
     <div class="form-group row">
       <label class="col-2 col-form-label">Nombre</label>
@@ -9,32 +9,40 @@
           class="form-control"
           [class.is-invalid]="nombre.invalid && nombre.touched"
           name="nombre"
-          [ngModel]='usuario.nombre'
+          [ngModel]="usuario.nombre"
           type="text"
           required
           minlength="2"
           placeholder="Nombre"
           #nombre="ngModel"
         />
-        <small class="form-text text-danger" *ngIf="nombre.invalid && nombre.touched">Ingrese 5 Letras</small>
+        <small
+          class="form-text text-danger"
+          *ngIf="nombre.invalid && nombre.touched"
+          >Ingrese un nombre válido</small
+        >
       </div>
     </div>
 
     <div class="form-group row">
       <label class="col-2 col-form-label">Apellido</label>
       <div class="col-8">
-        <input 
-        class="form-control"
-        [class.is-invalid]="apellido.invalid && apellido.touched"
-        type="text" 
-        placeholder="Apellido"
-        name="apellido"
-        [ngModel]='usuario.apellido'
-        required
-        minlength="2"
-        #apellido="ngModel"
+        <input
+          class="form-control"
+          [class.is-invalid]="apellido.invalid && apellido.touched"
+          type="text"
+          placeholder="Apellido"
+          name="apellido"
+          [ngModel]="usuario.apellido"
+          required
+          minlength="2"
+          #apellido="ngModel"
         />
-        <small class="form-text text-danger" *ngIf="apellido.invalid && apellido.touched">Ingrese 5 Letras</small>
+        <small
+          class="form-text text-danger"
+          *ngIf="apellido.invalid && apellido.touched"
+          >Ingrese un apellido válido</small
+        >
       </div>
     </div>
   </div>
@@ -47,15 +55,18 @@
         [class.is-invalid]="correo.invalid && correo.touched"
         type="email"
         required
-        [ngModel]='usuario.correo'
+        [ngModel]="usuario.correo"
         name="correo"
         placeholder="Correo electrónico"
         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
         #correo="ngModel"
       />
+      <small
+        class="form-text text-danger"
+        *ngIf="correo.invalid && correo.touched"
+        >Ingrese un correo válido</small
+      >
     </div>
-    <small class="form-text text-danger" *ngIf="correo.invalid && correo.touched">Ingrese un correo válido</small>
-
   </div>
 
   <div class="form-group row">
