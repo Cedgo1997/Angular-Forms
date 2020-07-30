@@ -11,6 +11,7 @@ export class ReactiveComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.crearFormulario();
+    this.cargarDataAlFormulario();
   }
 
   ngOnInit() {}
@@ -30,11 +31,17 @@ export class ReactiveComponent implements OnInit {
   }
 
   get distritoNoValido() {
-    return this.forma.get("direccion.distrito").invalid && this.forma.get("direccion.distrito").touched;
+    return (
+      this.forma.get("direccion.distrito").invalid &&
+      this.forma.get("direccion.distrito").touched
+    );
   }
 
   get ciudadNoValido() {
-    return this.forma.get("direccion.ciudad").invalid && this.forma.get("direccion.ciudad").touched;
+    return (
+      this.forma.get("direccion.ciudad").invalid &&
+      this.forma.get("direccion.ciudad").touched
+    );
   }
 
   crearFormulario() {
@@ -49,17 +56,34 @@ export class ReactiveComponent implements OnInit {
         ],
       ],
       direccion: this.fb.group({
-        distrito: ['', Validators.required],
-        ciudad: ['', Validators.required]
-      })
+        distrito: ["", Validators.required],
+        ciudad: ["", Validators.required],
+      }),
+    });
+  }
+
+  cargarDataAlFormulario() {
+    this.forma.setValue({
+      nombre: "César",
+      apellido: "González",
+      correo: "cedgo1997@gmail.com",
+      direccion: {
+        distrito: "Capital",
+        ciudad: "Caracas",
+      },
     });
   }
 
   guardar() {
-    console.log(this.forma);
     if (this.forma.invalid) {
-      Object.values(this.forma.controls).forEach((control) => {
-        control.markAsTouched();
+      return Object.values(this.forma.controls).forEach((control) => {
+        if (control instanceof FormGroup) {
+          Object.values(control.controls).forEach((control) => {
+            control.markAsTouched();
+          });
+        } else {
+          control.markAsTouched();
+        }
       });
     }
 
