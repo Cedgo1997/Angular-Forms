@@ -71,6 +71,9 @@ export class ReactiveComponent implements OnInit {
         distrito: "Capital",
         ciudad: "Caracas",
       },
+      pasatiempos: this.fb.array([
+        [],[],[],[],[]
+      ])
     });
   }
 
