@@ -119,12 +119,12 @@ get pasatiempos() {
     this.forma.reset({
       nombre: "César",
       apellido: "González",
-      correo: "cedgo1997@gmail.com",
+      correo: "correo@generico.com",
       pass1: '123',
       pass2: '123',
       direccion: {
-        distrito: "Capital",
-        ciudad: "Caracas",
+        distrito: "distrito",
+        ciudad: "ciudad",
       },
     });
   }
