@@ -51,6 +51,34 @@
     </div>
   </div>
 
+  <div class="form-group row">
+    <div class="col-2 col-form-label">Contraseña</div>
+    <div class="col">
+
+      <input 
+            type="password" 
+            class="form-control"
+            placeholder="Contraseña"
+            formControlName="pass1"
+            [class.is-invalid]="pass1NoValido"
+            >
+    </div>
+  </div>
+ 
+  <div class="form-group row">
+    <div class="col-2 col-form-label">Repetir Contraseña</div>
+    <div class="col">
+
+      <input 
+            type="password" 
+            class="form-control"
+            placeholder="Repetir Contraseña"
+            formControlName="pass2"
+            [class.is-invalid]="pass2NoValido"
+            >
+    </div>
+  </div>
+  
   <div class="form-group row" formGroupName="direccion">
     <label class="col-2 col-form-label">Dirección</label>
     <div class="form-row col">
