@@ -63,9 +63,7 @@ get pasatiempos() {
         distrito: ["", Validators.required],
         ciudad: ["", Validators.required],
       }),
-      pasatiempos: this.fb.array([
-        [],[],[],[],[]
-      ])
+      pasatiempos: this.fb.array([])
     });
   }
 
@@ -79,6 +77,14 @@ get pasatiempos() {
         ciudad: "Caracas",
       },
     });
+  }
+
+  agregarPasatiempo() {
+    this.pasatiempos.push( this.fb.control(''))
+  }
+
+  borrarPasatiempo(i:number) {
+    this.pasatiempos.removeAt(i);
   }
 
   guardar() {
