@@ -14,6 +14,7 @@ export class ReactiveComponent implements OnInit {
               private validadores: ValidadoresService) {
     this.crearFormulario();
     this.cargarDataAlFormulario();
+    this.crearListeners();
   }
 
   ngOnInit() {}
@@ -97,6 +98,19 @@ get pasatiempos() {
       validators: this.validadores.passIguales('pass1', 'pass2')
     });
   }
+
+  /* Metodo para verificar cambios en el formulario */
+
+
+  crearListeners() {
+    this.forma.valueChanges.subscribe( valor => {
+      console.log(valor);
+    })
+    this.forma.statusChanges.subscribe( status => {
+      console.log(status);
+    } )
+  }
+
 
 
     /* Uso de ReactiveForms para CARGAR Formulario con data preestablecida */
